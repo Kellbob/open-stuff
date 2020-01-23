@@ -65,7 +65,7 @@ def søke(event):
         labels.config(background=_from_rgb((19,19,19)))
     
     if skole_fritid_bool == True:
-        for root, dirs, files in os.walk('/Users/Sebastian/'):
+        for root, dirs, files in os.walk(dir_paths):
             for file, label in zip(files,alle_labels):
                 if (file.lower() == ting_å_søke_etter.get().lower()) or (file.lower() == str(ting_å_søke_etter.get())+'.docx') or (file.lower() == str(ting_å_søke_etter.get())+'.pptx') or (file.lower() == str(ting_å_søke_etter.get())+'.pdf'):
                     liste_for_filer, liste_2, liste_3 = [str(root)], [], []
@@ -85,7 +85,7 @@ def søke(event):
                     label.config(background=_from_rgb((37,37,38)))
                     label.bind('<Button-1>', partial(finne_fil,root+'/'+file))
     elif skole_fritid_bool == False:
-        for root, dirs, files in os.walk('/Users/Sebastian/'):
+        for root, dirs, files in os.walk(dir_path):
             for file, label in zip(files,alle_labels):
                 if (file.lower() == ting_å_søke_etter.get().lower()) or (file.lower() == str(ting_å_søke_etter.get())+'.py'):
                     liste_for_filer, liste_2, liste_3 = [str(root)], [], []
